@@ -30,6 +30,13 @@ async function loginIfNeeded(page, response) {
   const table = page.locator("table").filter({ hasText: "工作流" });
   if (await visible(table)) return;
 
+  // 未登录时，登录框只有在进入「价格清单」后才会弹出。
+  const priceEntry = page.getByText("价格清单", { exact: true }).first();
+  if (await visible(priceEntry)) {
+    await priceEntry.click();
+    await page.waitForTimeout(500);
+  }
+
   const usernameInput = page.locator([
     'input[name="username"]', 'input[name="account"]', 'input[name="phone"]',
     'input[type="tel"]', 'input[autocomplete="username"]',
@@ -48,14 +55,13 @@ async function loginIfNeeded(page, response) {
   await passwordInput.fill(password);
   const submit = page.getByRole("button", { name: /登录|登\s*录|sign\s*in|log\s*in/i }).first();
   await submit.click();
-  await page.waitForLoadState("domcontentloaded");
-  await page.waitForTimeout(1200);
+  await page.waitForTimeout(1500);
 }
 
 async function openPriceTable(page) {
   const table = page.locator("table").filter({ hasText: "工作流" }).first();
   if (await visible(table)) return table;
-  const priceEntry = page.getByRole("button", { name: /价格清单/ }).first();
+  const priceEntry = page.getByText("价格清单", { exact: true }).first();
   await priceEntry.waitFor({ state: "visible", timeout: 15000 });
   await priceEntry.click();
   await table.waitFor({ state: "visible", timeout: 15000 });
