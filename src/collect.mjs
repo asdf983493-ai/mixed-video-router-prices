@@ -53,9 +53,11 @@ async function loginIfNeeded(page, response) {
   }
   await usernameInput.fill(username);
   await passwordInput.fill(password);
-  const submit = page.getByRole("button", { name: /登录|登\s*录|sign\s*in|log\s*in/i }).first();
+  const submit = page.locator("#loginOverlay button").filter({ hasText: /登录|登\s*录|sign\s*in|log\s*in/i }).last();
+  await submit.waitFor({ state: "visible", timeout: 5000 });
   await submit.click();
-  await page.waitForTimeout(1500);
+  await page.locator("#loginOverlay").waitFor({ state: "hidden", timeout: 15000 });
+  await page.waitForTimeout(800);
 }
 
 async function openPriceTable(page) {
