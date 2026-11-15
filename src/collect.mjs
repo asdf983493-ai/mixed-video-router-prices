@@ -77,8 +77,8 @@ async function openPriceTable(page) {
   await table.waitFor({ state: "visible", timeout: 15000 });
   const refresh = page.getByRole("button", { name: /刷新/ }).first();
   if (await visible(refresh)) {
-    await refresh.click();
-    await page.waitForTimeout(800);
+    await refresh.evaluate(element => element.click());
+    await page.waitForTimeout(1200);
   }
   return table;
 }
