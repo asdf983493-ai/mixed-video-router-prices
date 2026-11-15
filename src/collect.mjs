@@ -16,7 +16,17 @@ async function visible(locator) {
   try { return await locator.first().isVisible({ timeout: 1500 }); } catch { return false; }
 }
 
-async function loginIfNeeded(page) {
+async function pageDiagnostic(page, response) {
+  const bodyText = await page.locator("body").innerText({ timeout: 3000 }).catch(() => "");
+  return {
+    url: page.url(),
+    title: await page.title().catch(() => ""),
+    status: response?.status?.() ?? null,
+    body: bodyText.replace(/\s+/g, " ").trim().slice(0, 1200)
+  };
+}
+
+async function loginIfNeeded(page, response) {
   const table = page.locator("table").filter({ hasText: "工作流" });
   if (await visible(table)) return;
 
@@ -27,8 +37,13 @@ async function loginIfNeeded(page) {
   ].join(", ")).filter({ visible: true }).first();
   const passwordInput = page.locator('input[type="password"], input[autocomplete="current-password"]').filter({ visible: true }).first();
 
-  await usernameInput.waitFor({ state: "visible", timeout: 15000 });
-  await passwordInput.waitFor({ state: "visible", timeout: 15000 });
+  try {
+    await usernameInput.waitFor({ state: "visible", timeout: 15000 });
+    await passwordInput.waitFor({ state: "visible", timeout: 15000 });
+  } catch (error) {
+    console.error("未找到登录框，页面诊断：", JSON.stringify(await pageDiagnostic(page, response)));
+    throw error;
+  }
   await usernameInput.fill(username);
   await passwordInput.fill(password);
   const submit = page.getByRole("button", { name: /登录|登\s*录|sign\s*in|log\s*in/i }).first();
@@ -70,8 +85,8 @@ const browser = await chromium.launch({ headless: true });
 try {
   const context = await browser.newContext({ locale: "zh-CN", timezoneId: "Asia/Shanghai" });
   const page = await context.newPage();
-  await page.goto(siteUrl, { waitUntil: "domcontentloaded", timeout: 45000 });
-  await loginIfNeeded(page);
+  const response = await page.goto(siteUrl, { waitUntil: "domcontentloaded", timeout: 45000 });
+  await loginIfNeeded(page, response);
   const table = await openPriceTable(page);
   const rows = await extractRows(table);
   const models = normalizePriceRows(rows, { sourceHost: new URL(siteUrl).hostname });
