@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
-  "priceVersion": 1794745397193,
+  "priceVersion": 1794787195480,
   "source": {
     "name": "分镜图生成器 · 运境",
     "host": "old.nxrouyuan.top",
     "url": "https://old.nxrouyuan.top/"
   },
-  "checkedAt": "2026-11-15T12:23:17.193Z",
-  "publishedAt": "2026-11-15T12:23:17.193Z",
-  "modelCount": 16,
+  "checkedAt": "2026-11-15T23:59:55.480Z",
+  "publishedAt": "2026-11-15T23:59:55.480Z",
+  "modelCount": 18,
   "models": [
     {
       "modelName": "minimax H3",
@@ -21,20 +21,20 @@
       "billingType": "per_second",
       "pricesByResolution": {
         "480P": {
-          "amount": 0.06,
+          "amount": 480,
           "unit": "per_second"
         },
         "720P": {
-          "amount": 0.06,
+          "amount": 480,
           "unit": "per_second"
         },
         "768P": {
-          "amount": 0.06,
+          "amount": 480,
           "unit": "per_second"
         }
       },
       "preferredResolution": "720P",
-      "price15": 0.9,
+      "price15": 7200,
       "price30": null,
       "maxDuration": 15,
       "currency": "CNY",
@@ -53,26 +53,112 @@
       "billingType": "per_second",
       "pricesByResolution": {
         "480P": {
-          "amount": 0.07,
+          "amount": 480,
           "unit": "per_second"
         },
         "720P": {
-          "amount": 0.07,
+          "amount": 480,
           "unit": "per_second"
         },
         "768P": {
-          "amount": 0.07,
+          "amount": 480,
           "unit": "per_second"
         }
       },
       "preferredResolution": "720P",
-      "price15": 1.05,
+      "price15": 7200,
       "price30": null,
       "maxDuration": 15,
       "currency": "CNY",
       "sourceHost": "old.nxrouyuan.top",
       "enabled": true,
       "entryKey": "minimaxh3升级版"
+    },
+    {
+      "modelName": "h3 竖屏专用",
+      "matchKey": "h3竖屏专用",
+      "resolutions": [
+        "720P",
+        "768P"
+      ],
+      "billingType": "per_generation",
+      "pricesByResolution": {
+        "720P": {
+          "amount": 720,
+          "unit": "per_generation"
+        },
+        "768P": {
+          "amount": 720,
+          "unit": "per_generation"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 720,
+      "price30": 720,
+      "maxDuration": 30,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "h3竖屏专用"
+    },
+    {
+      "modelName": "h3 横竖屏",
+      "matchKey": "h3横竖屏",
+      "resolutions": [
+        "720P",
+        "768P"
+      ],
+      "billingType": "per_generation",
+      "pricesByResolution": {
+        "720P": {
+          "amount": 720,
+          "unit": "per_generation"
+        },
+        "768P": {
+          "amount": 720,
+          "unit": "per_generation"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 720,
+      "price30": 720,
+      "maxDuration": 30,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "h3横竖屏"
+    },
+    {
+      "modelName": "WAN 3.0（ 720P/1080P · 30s）",
+      "matchKey": "wan30720p1080p30s",
+      "resolutions": [
+        "720P",
+        "768P",
+        "1080P"
+      ],
+      "billingType": "per_generation",
+      "pricesByResolution": {
+        "720P": {
+          "amount": 720,
+          "unit": "per_generation"
+        },
+        "768P": {
+          "amount": 720,
+          "unit": "per_generation"
+        },
+        "1080P": {
+          "amount": 720,
+          "unit": "per_generation"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 720,
+      "price30": 720,
+      "maxDuration": 30,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "wan30720p1080p30s"
     },
     {
       "modelName": "WAN 3.0 PRO（ 720P/1080P · 30s）",
@@ -85,21 +171,21 @@
       "billingType": "per_generation",
       "pricesByResolution": {
         "720P": {
-          "amount": 5.2,
+          "amount": 720,
           "unit": "per_generation"
         },
         "768P": {
-          "amount": 5.2,
+          "amount": 720,
           "unit": "per_generation"
         },
         "1080P": {
-          "amount": 5.2,
+          "amount": 720,
           "unit": "per_generation"
         }
       },
       "preferredResolution": "720P",
-      "price15": 5.2,
-      "price30": 5.2,
+      "price15": 720,
+      "price30": 720,
       "maxDuration": 30,
       "currency": "CNY",
       "sourceHost": "old.nxrouyuan.top",
@@ -117,21 +203,21 @@
       "billingType": "per_generation",
       "pricesByResolution": {
         "720P": {
-          "amount": 2.7,
+          "amount": 720,
           "unit": "per_generation"
         },
         "768P": {
-          "amount": 2.7,
+          "amount": 720,
           "unit": "per_generation"
         },
         "1080P": {
-          "amount": 2.7,
+          "amount": 720,
           "unit": "per_generation"
         }
       },
       "preferredResolution": "720P",
-      "price15": 2.7,
-      "price30": 2.7,
+      "price15": 720,
+      "price30": 720,
       "maxDuration": 30,
       "currency": "CNY",
       "sourceHost": "old.nxrouyuan.top",
@@ -149,21 +235,21 @@
       "billingType": "per_generation",
       "pricesByResolution": {
         "720P": {
-          "amount": 1.95,
+          "amount": 720,
           "unit": "per_generation"
         },
         "768P": {
-          "amount": 1.95,
+          "amount": 720,
           "unit": "per_generation"
         },
         "1080P": {
-          "amount": 1.95,
+          "amount": 720,
           "unit": "per_generation"
         }
       },
       "preferredResolution": "720P",
-      "price15": 1.95,
-      "price30": 1.95,
+      "price15": 720,
+      "price30": 720,
       "maxDuration": 30,
       "currency": "CNY",
       "sourceHost": "old.nxrouyuan.top",
@@ -180,16 +266,16 @@
       "billingType": "per_generation",
       "pricesByResolution": {
         "720P": {
-          "amount": 2.3,
+          "amount": 720,
           "unit": "per_generation"
         },
         "768P": {
-          "amount": 2.3,
+          "amount": 720,
           "unit": "per_generation"
         }
       },
       "preferredResolution": "720P",
-      "price15": 2.3,
+      "price15": 720,
       "price30": null,
       "maxDuration": 15,
       "currency": "CNY",
@@ -207,16 +293,16 @@
       "billingType": "per_generation",
       "pricesByResolution": {
         "720P": {
-          "amount": 4.3,
+          "amount": 720,
           "unit": "per_generation"
         },
         "768P": {
-          "amount": 4.3,
+          "amount": 720,
           "unit": "per_generation"
         }
       },
       "preferredResolution": "720P",
-      "price15": 4.3,
+      "price15": 720,
       "price30": null,
       "maxDuration": 15,
       "currency": "CNY",
@@ -234,17 +320,17 @@
       "billingType": "per_generation",
       "pricesByResolution": {
         "720P": {
-          "amount": 8.2,
+          "amount": 720,
           "unit": "per_generation"
         },
         "768P": {
-          "amount": 8.2,
+          "amount": 720,
           "unit": "per_generation"
         }
       },
       "preferredResolution": "720P",
-      "price15": 8.2,
-      "price30": 8.2,
+      "price15": 720,
+      "price30": 720,
       "maxDuration": 30,
       "currency": "CNY",
       "sourceHost": "old.nxrouyuan.top",
@@ -260,13 +346,13 @@
       "billingType": "per_second",
       "pricesByResolution": {
         "480P": {
-          "amount": 0.34,
+          "amount": 480,
           "unit": "per_second"
         }
       },
       "preferredResolution": "480P",
-      "price15": 5.1,
-      "price30": 10.2,
+      "price15": 7200,
+      "price30": 14400,
       "maxDuration": 30,
       "currency": "CNY",
       "sourceHost": "old.nxrouyuan.top",
@@ -283,54 +369,22 @@
       "billingType": "per_second",
       "pricesByResolution": {
         "720P": {
-          "amount": 0.44,
+          "amount": 720,
           "unit": "per_second"
         },
         "768P": {
-          "amount": 0.44,
+          "amount": 720,
           "unit": "per_second"
         }
       },
       "preferredResolution": "720P",
-      "price15": 6.6,
-      "price30": 13.2,
+      "price15": 10800,
+      "price30": 21600,
       "maxDuration": 30,
       "currency": "CNY",
       "sourceHost": "old.nxrouyuan.top",
       "enabled": true,
       "entryKey": "msd25d3"
-    },
-    {
-      "modelName": "seedance 2.5-flash",
-      "matchKey": "seedance25flash",
-      "resolutions": [
-        "480P",
-        "720P",
-        "768P"
-      ],
-      "billingType": "per_generation",
-      "pricesByResolution": {
-        "480P": {
-          "amount": 6.5,
-          "unit": "per_generation"
-        },
-        "720P": {
-          "amount": 6.5,
-          "unit": "per_generation"
-        },
-        "768P": {
-          "amount": 6.5,
-          "unit": "per_generation"
-        }
-      },
-      "preferredResolution": "720P",
-      "price15": 6.5,
-      "price30": 6.5,
-      "maxDuration": 30,
-      "currency": "CNY",
-      "sourceHost": "old.nxrouyuan.top",
-      "enabled": true,
-      "entryKey": "seedance25flash"
     },
     {
       "modelName": "H sd-2.5-flash",
@@ -343,21 +397,21 @@
       "billingType": "per_generation",
       "pricesByResolution": {
         "480P": {
-          "amount": 2.5,
+          "amount": 480,
           "unit": "per_generation"
         },
         "720P": {
-          "amount": 3.5,
+          "amount": 480,
           "unit": "per_generation"
         },
         "768P": {
-          "amount": 3.5,
+          "amount": 480,
           "unit": "per_generation"
         }
       },
       "preferredResolution": "720P",
-      "price15": 3.5,
-      "price30": 3.5,
+      "price15": 480,
+      "price30": 480,
       "maxDuration": 30,
       "currency": "CNY",
       "sourceHost": "old.nxrouyuan.top",
@@ -374,17 +428,17 @@
       "billingType": "per_generation",
       "pricesByResolution": {
         "720P": {
-          "amount": 5,
+          "amount": 720,
           "unit": "per_generation"
         },
         "768P": {
-          "amount": 5,
+          "amount": 720,
           "unit": "per_generation"
         }
       },
       "preferredResolution": "720P",
-      "price15": 5,
-      "price30": 5,
+      "price15": 720,
+      "price30": 720,
       "maxDuration": 30,
       "currency": "CNY",
       "sourceHost": "old.nxrouyuan.top",
@@ -401,22 +455,22 @@
       "billingType": "per_generation",
       "pricesByResolution": {
         "720P": {
-          "amount": 2.7,
+          "amount": 720,
           "unit": "per_generation"
         },
         "768P": {
-          "amount": 2.7,
+          "amount": 720,
           "unit": "per_generation"
         }
       },
       "preferredResolution": "720P",
-      "price15": 2.7,
-      "price30": 2.7,
+      "price15": 720,
+      "price30": 720,
       "maxDuration": 30,
       "currency": "CNY",
       "sourceHost": "old.nxrouyuan.top",
       "enabled": true,
-      "entryKey": "seedance25flash#2"
+      "entryKey": "seedance25flash"
     },
     {
       "modelName": "Seedance 2.0 Fast（经济版）",
@@ -428,16 +482,16 @@
       "billingType": "per_generation",
       "pricesByResolution": {
         "720P": {
-          "amount": 1.5,
+          "amount": 720,
           "unit": "per_generation"
         },
         "768P": {
-          "amount": 1.5,
+          "amount": 720,
           "unit": "per_generation"
         }
       },
       "preferredResolution": "720P",
-      "price15": 1.5,
+      "price15": 720,
       "price30": null,
       "maxDuration": 15,
       "currency": "CNY",
@@ -455,16 +509,16 @@
       "billingType": "per_generation",
       "pricesByResolution": {
         "720P": {
-          "amount": 2.5,
+          "amount": 720,
           "unit": "per_generation"
         },
         "768P": {
-          "amount": 2.5,
+          "amount": 720,
           "unit": "per_generation"
         }
       },
       "preferredResolution": "720P",
-      "price15": 2.5,
+      "price15": 720,
       "price30": null,
       "maxDuration": 15,
       "currency": "CNY",
