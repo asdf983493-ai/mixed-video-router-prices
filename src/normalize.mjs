@@ -60,10 +60,13 @@ export function normalizePriceRow(row, { sourceHost = "old.nxrouyuan.top" } = {}
 export function normalizePriceRows(rows, options = {}) {
   const models = rows.map(row => normalizePriceRow(row, options)).filter(model => model.modelName && model.maxDuration && Object.keys(model.pricesByResolution).length);
   if (models.length < 5) throw new Error(`价格表仅识别到 ${models.length} 个有效模型，拒绝覆盖上一版`);
-  const keys = new Set();
-  for (const model of models) {
-    if (keys.has(model.matchKey)) throw new Error(`价格表存在重复模型：${model.modelName}`);
-    keys.add(model.matchKey);
-  }
-  return models;
+  const occurrences = new Map();
+  return models.map(model => {
+    const occurrence = (occurrences.get(model.matchKey) || 0) + 1;
+    occurrences.set(model.matchKey, occurrence);
+    return {
+      ...model,
+      entryKey: occurrence === 1 ? model.matchKey : `${model.matchKey}#${occurrence}`
+    };
+  });
 }

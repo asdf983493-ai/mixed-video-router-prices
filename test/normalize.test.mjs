@@ -31,3 +31,20 @@ test("720P固定价格用于15秒和30秒", () => {
 test("明显不完整的价格表不会覆盖旧版", () => {
   assert.throws(() => normalizePriceRows([{ name: "only", resolutions: "720P", billing: "按次", saleText: "720P 1 元/次", maxDuration: "15 秒" }]), /拒绝覆盖/u);
 });
+
+test("同名工作流会保留并分配唯一条目编号", () => {
+  const row = (name, price = 1) => ({
+    name, resolutions: "720P", billing: "按次", saleText: `720P ${price} 元/次`, maxDuration: "30 秒"
+  });
+  const models = normalizePriceRows([
+    row("Seedance 2.5 Flash", 2.7),
+    row("Seedance 2.5 Flash", 3.5),
+    row("Seedance 2.0", 2.5),
+    row("Msd2.0 fast", 2.3),
+    row("minimax H3", 0.06)
+  ]);
+  assert.equal(models.length, 5);
+  assert.equal(models[0].entryKey, "seedance25flash");
+  assert.equal(models[1].entryKey, "seedance25flash#2");
+  assert.equal(models[0].matchKey, models[1].matchKey);
+});
