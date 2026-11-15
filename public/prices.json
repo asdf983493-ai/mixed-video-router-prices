@@ -1,13 +1,476 @@
 {
   "schemaVersion": "1.0",
-  "priceVersion": 0,
+  "priceVersion": 1794745397193,
   "source": {
     "name": "分镜图生成器 · 运境",
     "host": "old.nxrouyuan.top",
     "url": "https://old.nxrouyuan.top/"
   },
-  "checkedAt": null,
-  "publishedAt": null,
-  "modelCount": 0,
-  "models": []
+  "checkedAt": "2026-11-15T12:23:17.193Z",
+  "publishedAt": "2026-11-15T12:23:17.193Z",
+  "modelCount": 16,
+  "models": [
+    {
+      "modelName": "minimax H3",
+      "matchKey": "minimaxh3",
+      "resolutions": [
+        "480P",
+        "720P",
+        "768P"
+      ],
+      "billingType": "per_second",
+      "pricesByResolution": {
+        "480P": {
+          "amount": 0.06,
+          "unit": "per_second"
+        },
+        "720P": {
+          "amount": 0.06,
+          "unit": "per_second"
+        },
+        "768P": {
+          "amount": 0.06,
+          "unit": "per_second"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 0.9,
+      "price30": null,
+      "maxDuration": 15,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "minimaxh3"
+    },
+    {
+      "modelName": "minimax H3升级版",
+      "matchKey": "minimaxh3升级版",
+      "resolutions": [
+        "480P",
+        "720P",
+        "768P"
+      ],
+      "billingType": "per_second",
+      "pricesByResolution": {
+        "480P": {
+          "amount": 0.07,
+          "unit": "per_second"
+        },
+        "720P": {
+          "amount": 0.07,
+          "unit": "per_second"
+        },
+        "768P": {
+          "amount": 0.07,
+          "unit": "per_second"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 1.05,
+      "price30": null,
+      "maxDuration": 15,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "minimaxh3升级版"
+    },
+    {
+      "modelName": "WAN 3.0 PRO（ 720P/1080P · 30s）",
+      "matchKey": "wan30pro720p1080p30s",
+      "resolutions": [
+        "720P",
+        "768P",
+        "1080P"
+      ],
+      "billingType": "per_generation",
+      "pricesByResolution": {
+        "720P": {
+          "amount": 5.2,
+          "unit": "per_generation"
+        },
+        "768P": {
+          "amount": 5.2,
+          "unit": "per_generation"
+        },
+        "1080P": {
+          "amount": 5.2,
+          "unit": "per_generation"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 5.2,
+      "price30": 5.2,
+      "maxDuration": 30,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "wan30pro720p1080p30s"
+    },
+    {
+      "modelName": "wan3 性价比之王",
+      "matchKey": "wan3性价比之王",
+      "resolutions": [
+        "720P",
+        "768P",
+        "1080P"
+      ],
+      "billingType": "per_generation",
+      "pricesByResolution": {
+        "720P": {
+          "amount": 2.7,
+          "unit": "per_generation"
+        },
+        "768P": {
+          "amount": 2.7,
+          "unit": "per_generation"
+        },
+        "1080P": {
+          "amount": 2.7,
+          "unit": "per_generation"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 2.7,
+      "price30": 2.7,
+      "maxDuration": 30,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "wan3性价比之王"
+    },
+    {
+      "modelName": "video-wan3 新款",
+      "matchKey": "videowan3新款",
+      "resolutions": [
+        "720P",
+        "768P",
+        "1080P"
+      ],
+      "billingType": "per_generation",
+      "pricesByResolution": {
+        "720P": {
+          "amount": 1.95,
+          "unit": "per_generation"
+        },
+        "768P": {
+          "amount": 1.95,
+          "unit": "per_generation"
+        },
+        "1080P": {
+          "amount": 1.95,
+          "unit": "per_generation"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 1.95,
+      "price30": 1.95,
+      "maxDuration": 30,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "videowan3新款"
+    },
+    {
+      "modelName": "Msd2.0 fast",
+      "matchKey": "msd20fast",
+      "resolutions": [
+        "720P",
+        "768P"
+      ],
+      "billingType": "per_generation",
+      "pricesByResolution": {
+        "720P": {
+          "amount": 2.3,
+          "unit": "per_generation"
+        },
+        "768P": {
+          "amount": 2.3,
+          "unit": "per_generation"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 2.3,
+      "price30": null,
+      "maxDuration": 15,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "msd20fast"
+    },
+    {
+      "modelName": "Msd2.0 满血",
+      "matchKey": "msd20满血",
+      "resolutions": [
+        "720P",
+        "768P"
+      ],
+      "billingType": "per_generation",
+      "pricesByResolution": {
+        "720P": {
+          "amount": 4.3,
+          "unit": "per_generation"
+        },
+        "768P": {
+          "amount": 4.3,
+          "unit": "per_generation"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 4.3,
+      "price30": null,
+      "maxDuration": 15,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "msd20满血"
+    },
+    {
+      "modelName": "Msd2.5 满血",
+      "matchKey": "msd25满血",
+      "resolutions": [
+        "720P",
+        "768P"
+      ],
+      "billingType": "per_generation",
+      "pricesByResolution": {
+        "720P": {
+          "amount": 8.2,
+          "unit": "per_generation"
+        },
+        "768P": {
+          "amount": 8.2,
+          "unit": "per_generation"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 8.2,
+      "price30": 8.2,
+      "maxDuration": 30,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "msd25满血"
+    },
+    {
+      "modelName": "Msd-2.5-d2",
+      "matchKey": "msd25d2",
+      "resolutions": [
+        "480P"
+      ],
+      "billingType": "per_second",
+      "pricesByResolution": {
+        "480P": {
+          "amount": 0.34,
+          "unit": "per_second"
+        }
+      },
+      "preferredResolution": "480P",
+      "price15": 5.1,
+      "price30": 10.2,
+      "maxDuration": 30,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "msd25d2"
+    },
+    {
+      "modelName": "Msd-2.5-d3",
+      "matchKey": "msd25d3",
+      "resolutions": [
+        "720P",
+        "768P"
+      ],
+      "billingType": "per_second",
+      "pricesByResolution": {
+        "720P": {
+          "amount": 0.44,
+          "unit": "per_second"
+        },
+        "768P": {
+          "amount": 0.44,
+          "unit": "per_second"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 6.6,
+      "price30": 13.2,
+      "maxDuration": 30,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "msd25d3"
+    },
+    {
+      "modelName": "seedance 2.5-flash",
+      "matchKey": "seedance25flash",
+      "resolutions": [
+        "480P",
+        "720P",
+        "768P"
+      ],
+      "billingType": "per_generation",
+      "pricesByResolution": {
+        "480P": {
+          "amount": 6.5,
+          "unit": "per_generation"
+        },
+        "720P": {
+          "amount": 6.5,
+          "unit": "per_generation"
+        },
+        "768P": {
+          "amount": 6.5,
+          "unit": "per_generation"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 6.5,
+      "price30": 6.5,
+      "maxDuration": 30,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "seedance25flash"
+    },
+    {
+      "modelName": "H sd-2.5-flash",
+      "matchKey": "hsd25flash",
+      "resolutions": [
+        "480P",
+        "720P",
+        "768P"
+      ],
+      "billingType": "per_generation",
+      "pricesByResolution": {
+        "480P": {
+          "amount": 2.5,
+          "unit": "per_generation"
+        },
+        "720P": {
+          "amount": 3.5,
+          "unit": "per_generation"
+        },
+        "768P": {
+          "amount": 3.5,
+          "unit": "per_generation"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 3.5,
+      "price30": 3.5,
+      "maxDuration": 30,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "hsd25flash"
+    },
+    {
+      "modelName": "稳定2.5 10图5音频 黑奴价格",
+      "matchKey": "稳定2510图5音频黑奴价格",
+      "resolutions": [
+        "720P",
+        "768P"
+      ],
+      "billingType": "per_generation",
+      "pricesByResolution": {
+        "720P": {
+          "amount": 5,
+          "unit": "per_generation"
+        },
+        "768P": {
+          "amount": 5,
+          "unit": "per_generation"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 5,
+      "price30": 5,
+      "maxDuration": 30,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "稳定2510图5音频黑奴价格"
+    },
+    {
+      "modelName": "Seedance 2.5 Flash",
+      "matchKey": "seedance25flash",
+      "resolutions": [
+        "720P",
+        "768P"
+      ],
+      "billingType": "per_generation",
+      "pricesByResolution": {
+        "720P": {
+          "amount": 2.7,
+          "unit": "per_generation"
+        },
+        "768P": {
+          "amount": 2.7,
+          "unit": "per_generation"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 2.7,
+      "price30": 2.7,
+      "maxDuration": 30,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "seedance25flash#2"
+    },
+    {
+      "modelName": "Seedance 2.0 Fast（经济版）",
+      "matchKey": "seedance20fast经济版",
+      "resolutions": [
+        "720P",
+        "768P"
+      ],
+      "billingType": "per_generation",
+      "pricesByResolution": {
+        "720P": {
+          "amount": 1.5,
+          "unit": "per_generation"
+        },
+        "768P": {
+          "amount": 1.5,
+          "unit": "per_generation"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 1.5,
+      "price30": null,
+      "maxDuration": 15,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "seedance20fast经济版"
+    },
+    {
+      "modelName": "Seedance 2.0",
+      "matchKey": "seedance20",
+      "resolutions": [
+        "720P",
+        "768P"
+      ],
+      "billingType": "per_generation",
+      "pricesByResolution": {
+        "720P": {
+          "amount": 2.5,
+          "unit": "per_generation"
+        },
+        "768P": {
+          "amount": 2.5,
+          "unit": "per_generation"
+        }
+      },
+      "preferredResolution": "720P",
+      "price15": 2.5,
+      "price30": null,
+      "maxDuration": 15,
+      "currency": "CNY",
+      "sourceHost": "old.nxrouyuan.top",
+      "enabled": true,
+      "entryKey": "seedance20"
+    }
+  ]
 }
