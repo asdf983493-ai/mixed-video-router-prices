@@ -16,6 +16,14 @@ async function visible(locator) {
   try { return await locator.first().isVisible({ timeout: 1500 }); } catch { return false; }
 }
 
+async function clickMenuEntry(locator) {
+  await locator.waitFor({ state: "attached", timeout: 15000 });
+  await locator.evaluate(element => {
+    const target = element.closest("button, a, [role='button']") || element;
+    target.click();
+  });
+}
+
 async function pageDiagnostic(page, response) {
   const bodyText = await page.locator("body").innerText({ timeout: 3000 }).catch(() => "");
   return {
@@ -33,7 +41,7 @@ async function loginIfNeeded(page, response) {
   // 未登录时，登录框只有在进入「价格清单」后才会弹出。
   const priceEntry = page.getByText("价格清单", { exact: true }).first();
   if (await visible(priceEntry)) {
-    await priceEntry.click();
+    await clickMenuEntry(priceEntry);
     await page.waitForTimeout(500);
   }
 
@@ -65,7 +73,7 @@ async function openPriceTable(page) {
   if (await visible(table)) return table;
   const priceEntry = page.getByText("价格清单", { exact: true }).first();
   await priceEntry.waitFor({ state: "visible", timeout: 15000 });
-  await priceEntry.click();
+  await clickMenuEntry(priceEntry);
   await table.waitFor({ state: "visible", timeout: 15000 });
   const refresh = page.getByRole("button", { name: /刷新/ }).first();
   if (await visible(refresh)) {
@@ -91,7 +99,11 @@ async function extractRows(table) {
 
 const browser = await chromium.launch({ headless: true });
 try {
-  const context = await browser.newContext({ locale: "zh-CN", timezoneId: "Asia/Shanghai" });
+  const context = await browser.newContext({
+    locale: "zh-CN",
+    timezoneId: "Asia/Shanghai",
+    viewport: { width: 1920, height: 1080 }
+  });
   const page = await context.newPage();
   const response = await page.goto(siteUrl, { waitUntil: "domcontentloaded", timeout: 45000 });
   await loginIfNeeded(page, response);
