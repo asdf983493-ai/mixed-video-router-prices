@@ -28,6 +28,35 @@ test("720P固定价格用于15秒和30秒", () => {
   assert.equal(model.price30, 3.5);
 });
 
+test("分辨率文本绝不会被当作价格", () => {
+  const fixed = normalizePriceRow({
+    name: "Msd2.5 满血", resolutions: "720P / 768P", billing: "按次",
+    saleText: "720P / 768P 8.2 元/次", maxDuration: "30 秒"
+  });
+  assert.deepEqual([fixed.price15, fixed.price30], [8.2, 8.2]);
+
+  const perSecond = normalizePriceRow({
+    name: "Msd-2.5-d2", resolutions: "480P", billing: "按秒",
+    saleText: "480P 0.34 元/秒", maxDuration: "30 秒"
+  });
+  assert.deepEqual([perSecond.price15, perSecond.price30], [5.1, 10.2]);
+
+  const invalid = normalizePriceRow({
+    name: "错位行", resolutions: "720P / 768P", billing: "按次",
+    saleText: "720P / 768P", maxDuration: "30 秒"
+  });
+  assert.deepEqual(invalid.pricesByResolution, {});
+  assert.equal(invalid.price15, null);
+});
+
+test("整张表价格列错位时拒绝发布", () => {
+  const brokenRows = Array.from({ length: 5 }, (_, index) => ({
+    name: `broken-${index}`, resolutions: "720P", billing: "按次",
+    saleText: "720P", maxDuration: "30 秒"
+  }));
+  assert.throws(() => normalizePriceRows(brokenRows), /拒绝覆盖/u);
+});
+
 test("明显不完整的价格表不会覆盖旧版", () => {
   assert.throws(() => normalizePriceRows([{ name: "only", resolutions: "720P", billing: "按次", saleText: "720P 1 元/次", maxDuration: "15 秒" }]), /拒绝覆盖/u);
 });

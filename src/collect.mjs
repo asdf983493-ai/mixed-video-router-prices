@@ -84,17 +84,41 @@ async function openPriceTable(page) {
 }
 
 async function extractRows(table) {
-  return table.locator("tr").evaluateAll(rows => rows.slice(1).map(row => {
-    const cells = [...row.querySelectorAll("th,td")].map(cell => cell.innerText.replace(/\s+/g, " ").trim());
-    return {
-      name: cells[0] || "",
-      resolutions: cells[1] || "",
-      billing: cells[2] || "",
-      saleText: cells[3] || "",
-      note: cells[4] || "",
-      maxDuration: cells[5] || ""
+  return table.evaluate(element => {
+    const rows = [...element.rows];
+    const cellText = cell => cell?.innerText?.replace(/\s+/g, " ").trim() || "";
+    const headerIndex = rows.findIndex(row => {
+      const text = [...row.cells].map(cellText).join(" ");
+      return /工作流/.test(text) && /售价|价格/.test(text);
+    });
+    if (headerIndex < 0) throw new Error("价格表缺少工作流或售价表头");
+    const headers = [...rows[headerIndex].cells].map(cellText);
+    const column = (pattern, fallback) => {
+      const index = headers.findIndex(header => pattern.test(header));
+      return index >= 0 ? index : fallback;
     };
-  }).filter(row => row.name));
+    const columns = {
+      name: column(/工作流|模型/u, 0),
+      resolutions: column(/分辨率|画质/u, 1),
+      billing: column(/计费/u, 2),
+      saleText: column(/售价|价格/u, 3),
+      note: column(/备注/u, 4),
+      maxDuration: column(/时长上限|最大时长|时长/u, 5)
+    };
+    return rows.slice(headerIndex + 1).map(row => {
+      // HTMLTableRowElement.cells contains direct cells only. querySelectorAll
+      // also captured nested responsive-table cells and shifted every column.
+      const cells = [...row.cells].map(cellText);
+      return {
+        name: cells[columns.name] || "",
+        resolutions: cells[columns.resolutions] || "",
+        billing: cells[columns.billing] || "",
+        saleText: cells[columns.saleText] || "",
+        note: cells[columns.note] || "",
+        maxDuration: cells[columns.maxDuration] || ""
+      };
+    }).filter(row => row.name);
+  });
 }
 
 const browser = await chromium.launch({ headless: true });

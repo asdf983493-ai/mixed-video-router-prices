@@ -20,6 +20,14 @@ export function parseResolutionPrices(value) {
   return prices;
 }
 
+function fallbackPriceAmount(value) {
+  const text = String(value || "").replace(/\s+/gu, " ");
+  const symbolPrice = [...text.matchAll(/[¥￥]\s*(\d+(?:\.\d+)?)/gu)];
+  if (symbolPrice.length) return Number(symbolPrice[0][1]);
+  const unitPrice = [...text.matchAll(/(\d+(?:\.\d+)?)\s*(?:元|人民币)(?=\s*(?:[/／]\s*(?:秒|次))?)/gu)];
+  return unitPrice.length ? Number(unitPrice[0][1]) : null;
+}
+
 function priceAtDuration(entry, seconds, maxDuration) {
   if (!entry || !Number.isFinite(seconds) || seconds > maxDuration) return null;
   return Number((entry.amount * (entry.unit === "per_second" ? seconds : 1)).toFixed(6));
@@ -34,9 +42,11 @@ export function normalizePriceRow(row, { sourceHost = "old.nxrouyuan.top" } = {}
   const maxDuration = Number(maxDurationMatch?.[0] || 0);
   const resolutions = parseResolutions(resolutionText);
   const pricesByResolution = parseResolutionPrices(saleText);
-  const fallbackAmount = Number(saleText.match(new RegExp(NUMBER, "u"))?.[0]);
+  // Never treat resolution labels such as 480P/720P as monetary amounts.
+  // A fallback price must be explicitly attached to ¥/￥/元.
+  const fallbackAmount = fallbackPriceAmount(saleText);
   const fallbackUnit = /按秒|元\s*[/／]\s*秒/u.test(`${billingText} ${saleText}`) ? "per_second" : "per_generation";
-  if (!Object.keys(pricesByResolution).length && Number.isFinite(fallbackAmount)) {
+  if (!Object.keys(pricesByResolution).length && fallbackAmount != null && Number.isFinite(fallbackAmount)) {
     for (const resolution of resolutions) pricesByResolution[resolution] = { amount: fallbackAmount, unit: fallbackUnit };
   }
   const preferredResolution = pricesByResolution["720P"] ? "720P" : pricesByResolution["768P"] ? "768P" : Object.keys(pricesByResolution)[0] || "";
