@@ -1,6 +1,14 @@
 name: Refresh shared prices
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "test/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/refresh-prices.yml"
   schedule:
     - cron: "23 4 * * *"
       timezone: "Asia/Shanghai"
